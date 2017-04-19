@@ -46,7 +46,7 @@ module DNSPod
       records = DNSPod::RecordList.new(domain_id).raw['records']
       a_record = nil
       records.each { |r| a_record = r if r['type'] == 'A' }
-      [a_record['id'], a_recoord['line_id'], a_record['value']]
+      [a_record['id'], a_record['line_id'], a_record['value']]
     end
   end
 end
