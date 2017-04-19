@@ -4,7 +4,7 @@ module DNSPod
   # Parse YAML configuration
   class Config
     def initialize
-      @config = YAML.safe_load(open('/etc/dnspod.yml', 'r:UTF-8').read)
+      @config = YAML.safe_load(open('config.yml', 'r:UTF-8').read)
     end
 
     def raw
