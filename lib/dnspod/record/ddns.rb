@@ -1,8 +1,8 @@
 module DNSPod
   # Dynamically update DNS A record
   class RecordDDNS
-    def initialize(domain_id, sub_domain = 'www')
-      record_id, line_id, @ip = get_records(domain_id)
+    def initialize(domain_id, record_id, line_id, ip, sub_domain = 'www')
+      @ip = ip
       @data = { domain_id: domain_id, record_id: record_id, record_line_id: line_id, sub_domain: sub_domain }
     end
 
@@ -38,15 +38,6 @@ module DNSPod
       else
         info
       end
-    end
-
-    private
-
-    def get_records(domain_id)
-      records = DNSPod::RecordList.new(domain_id).raw['records']
-      a_record = nil
-      records.each { |r| a_record = r if r['type'] == 'A' }
-      [a_record['id'], a_record['line_id'], a_record['value']]
     end
   end
 end

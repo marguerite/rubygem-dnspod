@@ -28,5 +28,12 @@ module DNSPod
         info
       end
     end
+
+    def get_records(domain_id)
+      records = raw['records']
+      a_records = []
+      records.each { |r| a_records << [r['id'], r['line_id'], r['value']] if r['type'] == 'A' }
+      a_records
+    end
   end
 end
