@@ -32,7 +32,7 @@ module DNSPod
       when '85'
         raise 'This account enabled location protection, current IP not among allowed range'
       else
-        raise "Unimplemented code #{code}"
+        code
       end
     end
   end

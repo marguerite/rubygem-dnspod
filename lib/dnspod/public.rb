@@ -2,8 +2,7 @@ module DNSPod
   # The common POST parameters
   class Public
     def initialize
-      config = DNSPod::Config.new.show
-      @login_token = config['token_id'] + ',' + config['token']
+      @login_token = DNSPod::Config.new.login_token
     end
 
     def get

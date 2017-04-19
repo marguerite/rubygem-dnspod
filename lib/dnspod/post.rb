@@ -12,6 +12,7 @@ module DNSPod
 
     def put
       http = Net::HTTP.new(@uri.host, @uri.port)
+      http.read_timeout = 10
       http.use_ssl = true
       resp = http.post(@uri.path, @data, 'User-Agent' => DNSPod::User_Agent)
       if resp.body =~ %r{<code>(-)?(\d+)</code>}

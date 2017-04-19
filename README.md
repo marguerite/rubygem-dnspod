@@ -10,6 +10,10 @@ So you are safe to depoly it on your Raspberry Pi server.
 
 ## Usage
 
-* Copy `config.yml.template` to `/etc/dnspod/config.yml` and fill in your credentials.
+* Copy `config.yml.template` to `/etc/dnspod.yml` and fill in your credentials.
+* link `bin/dnspod-ddns` to `/usr/bin/dnspod-ddns`.
+* Drop a simple bash script into your `/etc/cron.hourly`:
 
-* Set a cronjob to run `/usr/bin/dnspod-ddns` on your schedule.
+        #!/bin/sh
+        /usr/bin/dnspod-ddns
+
