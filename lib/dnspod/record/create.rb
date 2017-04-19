@@ -1,7 +1,7 @@
 module DNSPod
   # Add a new DNS Record
   class RecordCreate
-    def initialize(domain_id, sub_domain = '@', record_type = 'A', line_id = 0, mx = nil, ttl = 10, weight = 0)
+    def initialize(domain_id, sub_domain = '@', record_type = 'A', line_id = 0, mx = nil, ttl = 600, weight = 0)
       @data = { domain_id: domain_id, sub_domain: sub_domain, record_type: record_type,
                 record_line_id: line_id, weight: weight, ttl: ttl }
       @data[:mx] = mx || 20 if record_type == 'MX'
