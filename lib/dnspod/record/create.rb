@@ -51,6 +51,8 @@ module DNSPod
         raise 'The NS record for @ host can only use the default line_id'
       when '82'
         raise 'The IP to add was in our blacklist.'
+      when '104'
+        raise 'Domain record already exists'
       else
         info
       end
