@@ -12,7 +12,6 @@ domain_id = DNSPod::DomainList.get_domain_id(0)
 
 current_ip = open('http://ident.me').read
 
-DNSPod::RecordCreate.new(domain_id).set(current_ip)
 DNSPod::RecordCreate.new(domain_id, '@').set(current_ip)
 
 open('dnspod.log', 'a+:UTF-8') do |f|
